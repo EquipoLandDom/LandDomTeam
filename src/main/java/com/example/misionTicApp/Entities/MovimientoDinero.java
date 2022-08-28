@@ -18,6 +18,14 @@ public class MovimientoDinero {
     @Column(name = "amount")
     private float amount;
 
+    @ManyToOne
+    @JoinColumn(name = "idEmployee")
+    private Empleado employee;
+
+    @ManyToOne
+    @JoinColumn(name = "idEnterprise")
+    private Empresa enterprise;
+
     //Attributes
     private String concepto;
     private float monto;

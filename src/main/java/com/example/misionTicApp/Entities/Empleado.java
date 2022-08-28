@@ -2,9 +2,10 @@ package com.example.misionTicApp.Entities;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Employee")
+@Table(name = "Employees")
 public class Empleado {
 
     @Id
@@ -19,6 +20,13 @@ public class Empleado {
 
     @Column(name = "emailEmployee", unique = true)
     private String emailEmployee;
+
+    @ManyToOne
+    @JoinColumn(name = "idEnterprise")
+    private Empresa enterprise;
+
+    @OneToMany(mappedBy = "employees")
+    private List<MovimientoDinero> transactions;
 
     //Attributes
     private String nombreEmpleado;

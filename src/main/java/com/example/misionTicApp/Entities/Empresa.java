@@ -1,6 +1,7 @@
 package com.example.misionTicApp.Entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Enterprise")
@@ -21,6 +22,13 @@ public class Empresa {
 
     @Column(name = "adressEnterprise")
     private String adressEnterprise;
+
+    @OneToMany(mappedBy = "enterprise")
+    private List<Empleado> employees;
+
+    @OneToMany(mappedBy = "enterprise")
+    private List<MovimientoDinero> transactions;
+
 
     //Attributes
     private String nombreEmpresa;
